@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Text analyzer</title>
+</head>
+
+<body>
+    <textarea name="inputText" id="textInput" cols="50" rows="10" placeholder="Paste your text here" form="textForm" required>Hola me llamo</textarea>
+    <form onsubmit="textProcessing();return false" id="textForm">
+        <input type="submit">
+    </form>
+
+    <button onclick="textProcessing()">Procesar</button>
+</body>
+<script src="script.js"></script>
