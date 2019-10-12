@@ -7,9 +7,15 @@ function processText() {
     let text = preProcess(intext);
     lineBreaks = countLineBreaks(intext);
 
-    let charMap = mapChars(Array.from(text));
-    let wordMap = mapChars(parseWords(text));
-    let puncMap = mapChars(parsePunctuation(text));
+    let chars = Array.from(text);
+    let words = parseWords(text);
+    let puncs = parsePunctuation(text);
+
+    let charMap = mapChars(chars);
+    let wordMap = mapChars(words);
+    let puncMap = mapChars(puncs);
+
+    let wordLengthMap = mapChars(wordLength(words));
 
     console.log("Caracteres totales: " + countTotalChars(text, true));
     console.log("Caracteres totales sin espacios: " + countTotalChars(text, false));
@@ -27,6 +33,9 @@ function processText() {
     console.log("Caracteres diferentes: " + charMap.size);
     console.log("Palabras diferentes: " + wordMap.size);
     console.log("Signos de puntuación diferentes: " + puncMap.size);
+
+    console.log("Mapa de longitudes de palabra: ");
+    console.log(wordLengthMap);
 }
 
 function clearText() {
@@ -164,4 +173,14 @@ function sortMap(inMap) {
         sortedMap.set(key, value);
     }
     return sortedMap;
+}
+
+
+//A partir de un array de entrada devuelve un array con las longitudes de cada una de las palabras
+function wordLength(inArray){
+    let wordLenght = [];
+    for(let pos in inArray){
+        wordLenght.push(inArray[pos].length);
+    }
+    return wordLenght;
 }
