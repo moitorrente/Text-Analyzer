@@ -1,5 +1,5 @@
 //Devuelve un mapa con la información de "Valor" => "Número de repeticiones" de un array
-function mapChars(inArray) {
+function createMap(inArray) {
     let charMap = new Map();
     let current = null;
     let counter = 0;

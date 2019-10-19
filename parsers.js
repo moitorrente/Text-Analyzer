@@ -1,3 +1,12 @@
+//Caracteres considerados signos de puntuación
+const puntuaction = ["\"", "\'", ".", ",", ";", ":", "(", ")", "[", "]", "{", "}", "¿", "?", "¡", "!", "-", "—", "_"];
+
+//Devuelve un array con todos los caracteres separados por espacios
+function parseChars(text){
+    let chars = Array.from(text);
+    return chars;
+}
+
 //Devuelve un array con todas las "palabras" separadas por espacios
 function parseWords(text) {
     let words = [];

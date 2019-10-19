@@ -1,3 +1,5 @@
+var lineBreaks = 0;
+
 //Cuenta el número de saltos de linea
 function countLineBreaks(text) {
     let count = 0;

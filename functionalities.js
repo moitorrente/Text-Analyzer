@@ -19,15 +19,32 @@ function arrayCounter(inArray) {
     return wordLenght;
 }
 
-function clearAll() {
-    document.getElementById("textInput").value = null;
+function clearAll(text) {
+    if (text) {
+        document.getElementById("textInput").value = null;
+    }
+
+    clearTable("totalTable");
+    clearData();
     console.clear();
 }
 
-function clearConsole(){
+function clearConsole() {
     console.clear;
 }
 
-function clearText(){
+function clearText() {
     document.getElementById("textInput").value = null;
+}
+
+function clearTable(id) {
+    let table = document.getElementById(id);
+    if (table) {
+        table.parentNode.removeChild(table);
+    }
+
+}
+
+function clearData() {
+    numberValues.length = 0;
 }
