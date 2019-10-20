@@ -32,12 +32,14 @@ function processText() {
     numberValues.push(puncMap.size);
     numberValues.push(countTotal(text, 'sentences'));
     numberValues.push(sentenceMap.size);
+    numberValues.push(parseFloat(wordMap.size/countTotal(text, 'words') * 100).toFixed(2) + "%");
+    numberValues.push(parseFloat(charMap.size/countTotal(text, 'all') * 100).toFixed(2) + "%");
 
-    createTable(rowConcept, numberValues, 'totalTable');
-    createTable(Array.from(charMap.keys()), Array.from(charMap.values()), 'charTable');
-    createTable(Array.from(puncMap.keys()), Array.from(puncMap.values()), 'puncTable');
-    createTable(Array.from(wordMap.keys()), Array.from(wordMap.values()), 'wordTable');
-    createTable(Array.from(sentenceMap.keys()), Array.from(sentenceMap.values()), 'sentenceTable');
+    createTable(rowConcept, numberValues, 'totalTable', 'Total results');
+    createTable(Array.from(charMap.keys()), Array.from(charMap.values()), 'charTable', 'Characters table');
+    createTable(Array.from(puncMap.keys()), Array.from(puncMap.values()), 'puncTable', 'Punctuation table');
+    createTable(Array.from(wordMap.keys()), Array.from(wordMap.values()), 'wordTable', 'Words table');
+    createTable(Array.from(sentenceMap.keys()), Array.from(sentenceMap.values()), 'sentenceTable', 'Sentences table');
 
     if (consoleData) {
         console.log("Caracteres totales: " + countTotal(text, 'all'));

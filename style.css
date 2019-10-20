@@ -1,28 +1,50 @@
+#textInput{
+  background-color: #F2F3F6;
+}
+
 .button {
-    width: 60px;
-    height: 60px;
-    text-decoration: none;
-    font-style: italic;
-    display: inline-block;
-    outline: none;
-    cursor: pointer;
-    border: none;
-    color: white;
-    background-color: #F16F01;
-    border-radius: 100%;
-    overflow: none;
-    text-align: center;
-    opacity: 0.6;
-    transition: 0.3s;
-  }
-  
-  .button:hover {opacity: 1}
+  width: 60px;
+  height: 60px;
+  text-decoration: none;
+  font-style: italic;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  color: white;
+  background-color: #F16F01;
+  border-radius: 100%;
+  overflow: none;
+  text-align: center;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.button:hover {opacity: 1}
 
 table{
-  border-collapse: collapse;
+border-collapse: collapse;
+margin: 5%;
 }
 
 table, th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+  border: 1px solid #ddd;
+  padding: 5px;
+  width: fit-content;
+  white-space:nowrap;
+}
+
+body{
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+#tables {
+  display: flex;
+  justify-content: space-around;
+  align-items: top;
+  flex-direction: column;
 }

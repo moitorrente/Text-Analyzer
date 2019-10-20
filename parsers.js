@@ -1,5 +1,5 @@
 //Caracteres considerados signos de puntuación
-const puntuaction = ["\"", "\'", ".", ",", ";", ":", "(", ")", "[", "]", "{", "}", "¿", "?", "¡", "!", "-", "—", "_"];
+const puntuaction = ["\"", "\'", ".", ",", ";", ":", "(", ")", "[", "]", "{", "}", "¿", "?", "¡", "!", "-", "—", "_", "«", "»"];
 
 //Devuelve un array con todos los caracteres separados por espacios
 function parseChars(text) {
@@ -12,7 +12,7 @@ function parseWords(text) {
     let words = [];
     let textArray = Array.from(text); //Convierte string en array
 
-    for (let i = textArray.length; i > 0; i--) {
+    for (let i = textArray.length; i >= 0; i--) {
         for (let j = 0; j < puntuaction.length; j++) {
             if (textArray[i] == puntuaction[j]) {
                 textArray.splice(i, 1);
