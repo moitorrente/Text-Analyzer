@@ -2,21 +2,16 @@
 function preProcess(inText) {
     let regexp = /[\n\r]/g;
     let text;
+    let caseSensitive = document.getElementById("caseSensitive").checked;
     if (regexp.test(inText)) {
         text = inText.replace(regexp, ' '); //Convierte los CR y saltos de linea en espacio
     } else {
         text = inText;
     }
-    return text;
-}
-
-//A partir de un array de entrada devuelve un array con las longitudes de cada una de las ocurrencias
-function arrayCounter(inArray) {
-    let wordLenght = [];
-    for (let pos in inArray) {
-        wordLenght.push(inArray[pos].length);
+    if(!caseSensitive){
+        text = text.toLowerCase();
     }
-    return wordLenght;
+    return text;
 }
 
 function clearAll(text) {
@@ -25,6 +20,10 @@ function clearAll(text) {
     }
 
     clearTable("totalTable");
+    clearTable("charTable");
+    clearTable("puncTable");
+    clearTable("wordTable");
+    clearTable("sentenceTable");
     clearData();
     console.clear();
 }

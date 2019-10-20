@@ -2,7 +2,7 @@
 const puntuaction = ["\"", "\'", ".", ",", ";", ":", "(", ")", "[", "]", "{", "}", "¿", "?", "¡", "!", "-", "—", "_"];
 
 //Devuelve un array con todos los caracteres separados por espacios
-function parseChars(text){
+function parseChars(text) {
     let chars = Array.from(text);
     return chars;
 }
@@ -12,7 +12,7 @@ function parseWords(text) {
     let words = [];
     let textArray = Array.from(text); //Convierte string en array
 
-    for (let i = textArray.length; i >= 0; i--) {
+    for (let i = textArray.length; i > 0; i--) {
         for (let j = 0; j < puntuaction.length; j++) {
             if (textArray[i] == puntuaction[j]) {
                 textArray.splice(i, 1);
@@ -25,6 +25,10 @@ function parseWords(text) {
         if (words[i] == "") {
             words.splice(i, 1);
         }
+    }
+
+    if (words == "") {
+        words.length = 0;
     }
     return words;
 }

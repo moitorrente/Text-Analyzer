@@ -1,5 +1,38 @@
 var lineBreaks = 0;
 
+//Función de acceso a las funciones que realizan las cuentas, si el tipo no es niguno de los definidos busca el string entrado
+function countTotal(text, type) {
+    let count = 0;
+    switch (type) {
+        case 'words':
+            count = parseWords(text).length;
+            break;
+        case 'punctuation':
+            count = parsePunctuation(text).length;
+            break;
+        case 'sentences':
+            count = parseSentences(text).length;
+            break;
+        case 'lineBreaks':
+            count = countLineBreaks(text);
+            break;
+        case 'spaces':
+            count = countChar(text, ' ');
+            break;
+        case 'noSpaces':
+            count = countTotalChars(text, false);
+            break;
+        case 'all':
+            count = countTotalChars(text, true);
+            break;
+        default:
+            count = countChar(text, type);
+            break;
+    }
+    return count;
+}
+
+
 //Cuenta el número de saltos de linea
 function countLineBreaks(text) {
     let count = 0;
@@ -32,14 +65,12 @@ function countChar(text, char) {
     return totalChar;
 }
 
-//Devuelve el numero total de palabras
-function countTotalWords(text) {
-    let words = parseWords(text);
-    return words.length;
+//A partir de un array de entrada devuelve un array con las longitudes de cada una de las ocurrencias
+function arrayCounter(inArray) {
+    let wordLenght = [];
+    for (let pos in inArray) {
+        wordLenght.push(inArray[pos].length);
+    }
+    return wordLenght;
 }
 
-//Devuelve el número de signos de puntación totales
-function countTotalPunctuation(text) {
-    let totalPunc = parsePunctuation(text);
-    return totalPunc.length;
-}

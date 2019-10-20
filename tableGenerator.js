@@ -6,7 +6,9 @@ const rowConcept = ["Caracteres totales"
     , "Palabras totales"
     , "Palabras diferentes"
     , "Signos de puntuación totales"
-    , "Signos de puntuación diferentes"];
+    , "Signos de puntuación diferentes"
+    , "Frases totales"
+    , "Frases diferentes"];
 
 function createTable(textArray, numberArray, id) {
     let body = document.getElementsByTagName("body")[0];
