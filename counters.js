@@ -39,9 +39,7 @@ function countLineBreaks(text) {
     let regexp = /[\n\r]/g;
     if (regexp.test(text)) {
         count = text.match(regexp).length;
-    } else {
-        count = 0;
-    }
+    } 
     return count;
 }
 

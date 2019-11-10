@@ -66,5 +66,6 @@ function processText() {
         console.log(sentenceMap);
         console.log("Mapa de longitud de frases: ");
         console.log(sentenceLengthMap);
+        console.log("Palabra más larga: " + longest(Array.from(wordMap.keys())));
     }
 }

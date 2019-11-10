@@ -8,7 +8,7 @@ function preProcess(inText) {
     } else {
         text = inText;
     }
-    if(!caseSensitive){
+    if (!caseSensitive) {
         text = text.toLowerCase();
     }
     return text;
@@ -47,3 +47,19 @@ function clearTable(id) {
 function clearData() {
     numberValues.length = 0;
 }
+
+function longest(array) {
+    let sortedArray = sortByLength(array, 'desc');
+    return sortedArray[0];
+}
+
+function sortByLength(array, type) {
+    if (type == 'desc') {
+        return array.sort((x, y) => y.length - x.length);
+    } else {
+        return array.sort((x, y) => x.length - y.length);
+    }
+
+}
+
+
