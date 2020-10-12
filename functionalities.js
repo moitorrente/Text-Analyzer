@@ -1,8 +1,8 @@
 //Elimina saltos de linea y retornos de carro
 function preProcess(inText) {
-    let regexp = /[\n\r]/g;
+    const regexp = /[\n\r]/g;
     let text;
-    let caseSensitive = document.getElementById("caseSensitive").checked;
+    const caseSensitive = document.getElementById("caseSensitive").checked;
     if (regexp.test(inText)) {
         text = inText.replace(regexp, ' '); //Convierte los CR y saltos de linea en espacio
     } else {
@@ -28,10 +28,6 @@ function clearAll(text) {
     console.clear();
 }
 
-function clearConsole() {
-    console.clear;
-}
-
 function clearText() {
     document.getElementById("textInput").value = null;
 }
@@ -41,7 +37,6 @@ function clearTable(id) {
     if (table) {
         table.parentNode.removeChild(table);
     }
-
 }
 
 function clearData() {
@@ -59,7 +54,4 @@ function sortByLength(array, type) {
     } else {
         return array.sort((x, y) => x.length - y.length);
     }
-
 }
-
-

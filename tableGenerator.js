@@ -1,4 +1,4 @@
-const rowConcept = ["Caracteres totales"
+const ROW_CONCEPT = ["Caracteres totales"
     , "Caracteres sin espacios"
     , "Espacios"
     , "Caracteres diferentes"
@@ -13,12 +13,12 @@ const rowConcept = ["Caracteres totales"
     , "Densidad de carácteres"];
 
 function createTable(textArray, numberArray, id, captionText) {
-    let body = document.getElementsByTagName("body")[0];
-    let tables = document.getElementById("tables");
+    const body = document.getElementsByTagName("body")[0];
+    const tables = document.getElementById("tables");
 
-    let table = document.createElement("table");
+    const table = document.createElement("table");
     table.id = id;
-    let tblBody = document.createElement("tbody");
+    const tblBody = document.createElement("tbody");
     let rows = textArray.length;
     if (rows > 20){
         rows = 20;
@@ -29,10 +29,11 @@ function createTable(textArray, numberArray, id, captionText) {
         let row = document.createElement("tr");
         for (let j = 0; j < 2; j++) {
             let cell = document.createElement("td");
+            let cellText;
             if (j % 2 === 0) {
-                var cellText = document.createTextNode(textArray[i]);
+                cellText = document.createTextNode(textArray[i]);
             } else {
-                var cellText = document.createTextNode(numberArray[i]);
+                cellText = document.createTextNode(numberArray[i]);
             }
             cell.appendChild(cellText);
             row.appendChild(cell);
@@ -40,7 +41,7 @@ function createTable(textArray, numberArray, id, captionText) {
         tblBody.appendChild(row);
     }
     if (captionText && rows > 0){
-        let caption = table.createCaption();
+        const caption = table.createCaption();
         caption.textContent = captionText;
     }
 

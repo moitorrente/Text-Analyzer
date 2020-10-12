@@ -1,17 +1,16 @@
-var lineBreaks = 0;
-
 //Función de acceso a las funciones que realizan las cuentas, si el tipo no es niguno de los definidos busca el string entrado
 function countTotal(text, type) {
     let count = 0;
+    const textArray = Array.from(text);
     switch (type) {
         case 'words':
-            count = parseWords(text).length;
+            count = parseWords(textArray).length;
             break;
         case 'punctuation':
-            count = parsePunctuation(text).length;
+            count = parsePunctuation(textArray).length;
             break;
         case 'sentences':
-            count = parseSentences(text).length;
+            count = parseSentences(textArray).length;
             break;
         case 'lineBreaks':
             count = countLineBreaks(text);
@@ -32,43 +31,31 @@ function countTotal(text, type) {
     return count;
 }
 
-
 //Cuenta el número de saltos de linea
 function countLineBreaks(text) {
-    let count = 0;
-    let regexp = /[\n\r]/g;
-    if (regexp.test(text)) {
-        count = text.match(regexp).length;
-    } 
-    return count;
+    const LINE_BREAK = /[\n\r]/g;
+    if (LINE_BREAK.test(text)) {
+        return text.match(LINE_BREAK).length;
+    } else {
+        return 0;
+    }
 }
 
 //Devuelve el numero total de caracteres con y sin espacios
 function countTotalChars(text, spaces) {
-    let totalChars = text.length + lineBreaks;
-    if (!spaces) {
-        totalChars -= countChar(text, " ");
+    if (spaces) {
+        return text.length ;
+    } else {
+        return text.length - countChar(text, ' ');
     }
-    return totalChars;
 }
 
 //Devuelve el numero de repeticiones de un caracter
 function countChar(text, char) {
-    let totalChar = 0;
-    for (let pos in text) {
-        if (text[pos] == char) {
-            totalChar++;
-        }
-    }
-    return totalChar;
+    return Array.from(text).filter(x => x == char).length;
 }
 
 //A partir de un array de entrada devuelve un array con las longitudes de cada una de las ocurrencias
 function arrayCounter(inArray) {
-    let wordLenght = [];
-    for (let pos in inArray) {
-        wordLenght.push(inArray[pos].length);
-    }
-    return wordLenght;
+    return inArray.map(x => x.length);
 }
-

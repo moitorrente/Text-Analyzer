@@ -1,9 +1,9 @@
 //Devuelve un mapa con la información de "Valor" => "Número de repeticiones" de un array
 function createMap(inArray) {
-    let charMap = new Map();
+    const charMap = new Map();
     let current = null;
     let counter = 0;
-    let sortedArray = inArray.sort();
+    const sortedArray = inArray.sort();
 
     for (let i in sortedArray) {
         if (sortedArray[i] != current) {
@@ -16,14 +16,12 @@ function createMap(inArray) {
             counter++;
         }
     }
+
     if (counter > 0) {
         charMap.set(current, counter);
     }
 
-    let sortedMap = sortMap(charMap);
-
-    // console.log(sortedMap);
-    return sortedMap;
+    return sortMap(charMap);
 }
 
 //A partir de un mapa de entrada devuelve el mismo mapa ordenado por valor descendente

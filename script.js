@@ -2,24 +2,23 @@
 var numberValues = [];
 
 function processText() {
-    let consoleData = document.getElementById("console").checked;
+    const consoleData = document.getElementById("console").checked;
     clearAll();
-    var intext = document.getElementById("textInput").value;
-    let text = preProcess(intext);
-    lineBreaks = countTotal(intext, 'lineBreaks');
+    const intext = document.getElementById("textInput").value;
+    const text = preProcess(intext);
+    const chars = parseChars(text);
 
-    let chars = parseChars(text);
-    let words = parseWords(text);
-    let puncs = parsePunctuation(text);
-    let sentences = parseSentences(text);
+    const words = parseWords(chars);
+    const puncs = parsePunctuation(chars);
+    const sentences = parseSentences(chars);
 
-    let charMap = createMap(chars);
-    let wordMap = createMap(words);
-    let puncMap = createMap(puncs);
-    let sentenceMap = createMap(sentences);
+    const charMap = createMap(chars);
+    const wordMap = createMap(words);
+    const puncMap = createMap(puncs);
+    const sentenceMap = createMap(sentences);
 
-    let wordLengthMap = createMap(arrayCounter(words));
-    let sentenceLengthMap = createMap(arrayCounter(sentences));
+    const wordLengthMap = createMap(arrayCounter(words));
+    const sentenceLengthMap = createMap(arrayCounter(sentences));
 
     numberValues.push(countTotal(text, 'all'));
     numberValues.push(countTotal(text, 'noSpaces'));
@@ -35,7 +34,7 @@ function processText() {
     numberValues.push(parseFloat(wordMap.size/countTotal(text, 'words') * 100).toFixed(2) + "%");
     numberValues.push(parseFloat(charMap.size/countTotal(text, 'all') * 100).toFixed(2) + "%");
 
-    createTable(rowConcept, numberValues, 'totalTable', 'Total results');
+    createTable(ROW_CONCEPT, numberValues, 'totalTable', 'Total results');
     createTable(Array.from(charMap.keys()), Array.from(charMap.values()), 'charTable', 'Characters table');
     createTable(Array.from(puncMap.keys()), Array.from(puncMap.values()), 'puncTable', 'Punctuation table');
     createTable(Array.from(wordMap.keys()), Array.from(wordMap.values()), 'wordTable', 'Words table');
@@ -51,7 +50,7 @@ function processText() {
         console.log("Palabras diferentes: " + wordMap.size);
         console.log("Signos de puntuación: " + countTotal(text, 'punctuation'));
         console.log("Signos de puntuación diferentes: " + puncMap.size);
-        console.log("Palabras: " + parseWords(text));
+        console.log("Palabras: " + words);
         console.log("Mapa aracteres: ")
         console.log(charMap);
         console.log("Mapa palabras: ")
